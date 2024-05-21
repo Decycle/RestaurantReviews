@@ -5,6 +5,18 @@ import plotly.express as px
 import dash_bootstrap_components as dbc
 from dash_bootstrap_templates import load_figure_template
 
+import time
+
+dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
+load_figure_template("sketchy")
+external_stylesheets = [
+    dbc.themes.SKETCHY,
+    dbc.icons.FONT_AWESOME,
+    dbc_css,
+]
+app = Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
+
 df = pd.read_csv("../models/yelp_restaurant_review_labelled.csv")
 
 categories = [
@@ -52,13 +64,6 @@ def draw_graph(threshold=0.1):
         ]
     )
 
-
-dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
-load_figure_template("sketchy")
-external_stylesheets = [dbc.themes.SKETCHY, dbc.icons.FONT_AWESOME, dbc_css]
-app = Dash(__name__, external_stylesheets=external_stylesheets)
-
-server = app.server
 
 app.layout = dbc.Container(
     [
