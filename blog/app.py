@@ -28,7 +28,10 @@ def draw_graph(threshold=0.1):
     return dbc.Card(
         [
             dbc.CardHeader(
-                f'Text: {random_entry["text"].values[0]}',
+                [
+                    html.H4("Review:", className="card-title"),
+                    random_entry["text"].values[0],
+                ],
             ),
             dbc.CardBody(
                 [
