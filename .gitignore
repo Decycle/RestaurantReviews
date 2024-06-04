@@ -1,3 +1,3 @@
 __pycache__
-models/dataset/*
+blog/envmodels/dataset/*
 !models/dataset/la_mini_df.csv
